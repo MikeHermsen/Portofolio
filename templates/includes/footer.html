@@ -1,0 +1,44 @@
+<footer>
+        
+
+        <div class="footer-container">
+            <ul>
+              <h5>Navigation</h5>
+              {% for page in pages %} {% if ( title == page[1] ) %}
+              <li><a title="{{ page[2]}}" class="active">{{ page[1] }}</a></li>
+              {% else %}
+              <li><a title="{{ page[2] }}" href="{{ page[3] }}#start">{{ page[1] }}</a></li>
+              {% endif %}{% endfor %}
+            </ul>
+        </div>
+
+        <div class="footer-container">
+            <ul>
+              <h5>Media</h5>
+              <li><a title="MikeHermsenPrive@Gmail.com" href="mailto:MikeHermsenPrive@Gmail.com"> Mail</a></li>
+              <li><a title="+31 6 363-75-021" href="https://wa.me/31636375021" > Telephone</a></li>
+              <li><a title="MikeHermsen" href="https://github.com/MikeHermsen" > GitHub</a></li>
+              <li><a title="linkedin" href="https://www.linkedin.com/in/mike-hermsen-239215202/" > linkedin</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-container">
+            <ul>
+              <h5>OnPage</h5>
+              <li><a title="Top" href="#top"> Top</a></li>
+              <li><a title="Categories" href="#catogories"> Categories</a></li>
+              <li><a title="{{ title }}" href="#start"> {{ title }}</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-container">
+            <ul>
+              <h5>Other Websites</h5>
+              <li><a title="GigaFix" href="https://GigaFix.nl/">GigaFix.nl</a></li>
+              <li><a title="GigaFix" href="http://Mikeh.202devs.nl/">Mikeh.202devs.nl</a></li>
+              <li><a title="GigaFix" href="https://IgordeBeijer.com/">IgordeBeijer.com</a></li>
+              <li><a title="GigaFix" href="http://luukf.202devs.nl/">Luukf.202devs.nl</a></li>
+            </ul>   
+        </div>
+
+    </footer>

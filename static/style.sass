@@ -1,0 +1,561 @@
+//https://autoprefixer.github.io/
+// These are the variables the css wil use for decorating the pages
+$brand-color-black:      #0c0c0b
+$brand-color-gray:       #353535
+$brand-color-white:      #e4e4e4
+$brand-color-purple:     #ec00ec
+$brand-font:        'Roboto', sans-serif
+
+// The logic of the screen size for media qeury
+$tablet-screen: 900px
+$phone-screen: 450px
+
+// Settings for the page width
+// This will make the website containt some spacing between the edge and the content
+$page-margin-sides-width:   80% 
+$page-margin-sides-margin:  10%
+
+* // This will be aplied to all objects on the page
+    // margin -             This will remove the white spacing between the body and the website
+    // padding -            This will remove the white spacing between the body and the website
+    // list-style -         Removing all list styles. Just looks better
+    // text-decoration -    Removing text decoration to apply it self
+    margin:     0               
+    padding:    0               
+    list-style: none            
+    text-decoration: none       
+
+html 
+    // This will be aplied to the full page
+    // scroll-behavior  -   This will make the scrolling animation not being instantly   
+    // background-image -   Makes the background less monotonous 
+    font-family: $brand-font 
+    scroll-behavior: smooth        
+    background-image: linear-gradient(to bottom, $brand-color-white, $brand-color-white) 
+    
+body
+    // Spreads the body over the full page
+    width: 100%                 
+
+// Animations blurring CSS
+.blur-page div:not(.center)                     
+    // Screen blury ofload
+    // Running the blur page animation
+    animation: blur-page-animation 1s ease      
+
+    
+.auto-blur-page div:not(.center)                
+    // Screen bluring auto aplied onload
+    // filter - Bluring the screen
+    filter: blur(10px)                          
+
+.unBlur-page div:not(.center)                   
+    // Screen unbluring onloads
+    // animation - Running the unblur page animation, Located below
+    animation: unblur-page-animation 0.5s ease  
+
+.remove-object                                  
+    // Apply this in the objects class to remove the object
+    display: none                               
+
+.center
+    // This is aplied to the loading div, This makes it show overlayed and prefent it from getting blurred
+    filter: none                               
+    z-index: 10                                
+
+.loading-container
+    // Loading container contains the loading gif, This will place it on the right spot
+    // transform -  positionating the loading div
+    top: 50%
+    left: 50%
+    width: 200px
+    height: 200px
+    position: absolute
+    transform: translate(-50%, -50%)
+
+
+
+
+.jump-btn // The button on the right that allows you to jump to categorie
+    right: 20px
+    width: 50px
+    height: 50px
+    bottom: 20px
+    cursor: pointer
+    position: fixed 
+    border-radius: 50%
+    background-color: $brand-color-black
+
+    p  // The text in the jump button will be centered in the middle
+        // transition - Transforming 
+        top: 22.5%
+        left: 22.5%
+        font-size: 30px
+        position: absolute
+        color: $brand-color-white
+        transition: transform 0.2s
+
+.arrow-flip
+    transform: rotate(180deg)
+
+
+.jump-btn:hover
+    box-shadow: 0 0 0 2px $brand-color-purple
+
+.menu-btn
+    // The button on top right
+    // cursor -  Makes the cursor an pointer on hovering over it
+    top: 17.5px
+    right: 7.5px
+    width: 30px
+    cursor: pointer
+    height: 20px
+    z-index: 40
+    display: flex
+    padding: 10px
+    position: absolute
+    
+
+.menu-bar
+    // The menu bars in the button 
+    width: 30px
+    height: 5px
+    position: absolute
+    transition: top 0.2s
+    border-radius: 10px
+    background-color: $brand-color-white
+
+#menu-layer-1
+    top: 0
+    z-index: 3
+
+#menu-layer-2
+    top: 20px
+    z-index: 4
+
+.menu-btn:hover > #menu-layer-1, 
+.menu-btn:hover > #menu-layer-2
+    top: 15px
+
+nav // The navigation links container style 
+    // Located in the header
+    width: 400px
+    float: right
+    display: none
+    margin-right: 50px
+    
+    ul // An unorder list for the links
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        justify-content: space-between // Spacing between the words
+
+        li // The list containing the link
+    
+            a // Defualt link css
+                color: $brand-color-white
+                display: block
+                padding: 22.5px 2.5px
+                font-size: 15px
+                text-transform: uppercase // Transfers text to uppercase
+            
+            a:hover, .active  // Cool glowing effect on hover and on .active link 
+                text-shadow: 0 0 1px $brand-color-white, 0 0 2px $brand-color-white, 0 0 6px $brand-color-gray, 0 0 8px $brand-color-gray, 0 0 10px $brand-color-gray, 0 0 12px $brand-color-gray, 0 0 14px $brand-color-gray
+
+            .active
+                cursor: not-allowed // When hovering over, this will show not the allowed cursor
+
+.container // Reusable container for content to be placed in
+
+    .title 
+        width: 40%
+        text-align: center
+        margin-left: 10%
+        padding-top: 10vh
+
+        h1 // Style for the home title of the page
+            width: 300px
+            border: 1px solid #ffffff75
+            padding: 20px 0
+            font-size: 40px
+            margin-top: 15vh 
+            font-weight: 300
+            user-select: none
+            border-radius: 20px
+            text-transform: uppercase
+
+            button
+                // Button default look for the spring to top
+                width: 60%
+                cursor: pointer
+                margin: 30px 10%
+                border: 2px solid #ffffffd2
+                padding: 10px 0
+                font-size: 25px
+                transition: background-color 0.2s 
+                border-radius: 20px
+                background-color: #ffffff00
+
+            button:hover
+                // Chages color onhover
+                background-color: #ffffff54
+
+
+.homepage-banner
+    width: 100%
+    height: 100vh   // Making div scretch to full height of the screen
+    min-height: 400px
+    object-fit: cover
+    background-size: cover
+    background-repeat: no-repeat
+    background-image: url('/static/media/background-home.jpg') !important
+
+
+h3
+    width: $page-margin-sides-width
+    color: $brand-color-black
+    padding: $page-margin-sides-margin
+    font-size: 80px
+    text-align: center
+    font-weight: 500
+
+
+section
+    width: $page-margin-sides-width
+    margin: 30px $page-margin-sides-margin
+    display: grid
+    grid-gap: 20px
+    font-size: 20px
+    grid-template-columns: auto auto
+    
+    p
+        margin: 20px
+        font-weight: 100
+        
+    h4 
+        width: 100%
+        margin: 20px 20px
+        font-size: 25px
+        text-align: left
+        font-weight: 400
+
+
+#catogories section
+    // Layout for the nav boxes
+    grid-template-columns: auto auto auto auto auto
+
+.container-home, .container-about-me
+    div
+        transition: all 0.8s
+        overflow: hidden
+        border-radius: 20px 
+    
+    img
+        border-radius: 20px 
+
+        width: 100%
+        height: 400px  
+    
+    div:hover
+        cursor: default
+
+
+
+.container-projects
+    
+    section
+        grid-template-columns: auto
+    
+    .code-blocks
+        margin: 20px 5%
+        transition: transform 0.8s
+        display: flex
+        min-height: 150px
+        border-radius: 20px 
+        background-color: $brand-color-white
+        box-shadow: 0px 0px 16px 0px #00000077
+        cursor: pointer
+
+
+    .back
+        color: $brand-color-white
+        display: none
+        border-radius: 0 20px 20px 0
+        background-color: $brand-color-black
+        
+    .fa
+        text-align: center
+        width: 100px
+        height: 100%
+        color: $brand-color-white
+        font-size: 24px
+
+    a:hover
+        color: $brand-color-purple
+
+    .code-container
+        text-align: center
+        border-left: 1px solid $brand-color-black
+        min-width: 400px
+        padding: 10px 2.5%
+
+.container-contact
+    box-shadow: 0px 0px 16px 0px #00000077
+    border-radius: 5px
+    color: $brand-color-black
+    width: 80%
+    margin: 10px 10%
+    float: left
+
+.container-contact h4
+    font-size: 20px
+
+
+.container-contact p
+    font-size: 12px
+
+.container-contact a
+    font-size: 20px
+    width: 90%
+    margin: 10px 5%
+    color: Black
+    transition: transform 0.4s
+
+.container-contact a:hover
+    // The contact container box
+    transform: scale(1.02)
+
+
+
+.container-contact div
+    // The contact container div
+    margin: 0px 5%
+    width: 90%
+
+
+.container-contact input, 
+.container-contact textarea
+    // Forum text area
+    display: inline-block
+    width: 90%
+    margin: 10px 5%    
+    padding: 5px 5%
+    resize: none
+
+
+
+.flip
+    // Flipping the card
+    transform: rotateY(180deg) scaleX(-1) scale(1.1)
+
+.container-box
+    // Default container box style
+    width: 100%
+    cursor: pointer
+    border-radius: 20px
+    transition: transform 0.1s
+    box-shadow: 0px 0px 16px 0px #00000077
+    background-color: $brand-color-white
+
+    img 
+
+        width: 100%
+        object-fit: cover
+        border-radius: 20px 20px 0 0
+        
+.container-box-current
+    // The current box you're on
+    cursor: context-menu
+    border-radius: 20px
+    box-shadow: 0px 0px 16px 0px #00000077
+    border: 2px dotted $brand-color-black
+    background-color: $brand-color-white
+
+    img 
+
+        width: 100%
+        object-fit: cover
+        border-radius: 20px 20px 0 0
+        
+
+.container-box:hover
+    // Style the nav container box
+    transform: scale(1.1)
+    z-index: 10000
+    position: relative
+
+
+footer
+    // Styler for footer
+    color: $brand-color-white
+    width: $page-margin-sides-width
+    display: grid
+    padding: 40px $page-margin-sides-margin
+    background-color: $brand-color-black
+    grid-template-columns: auto auto auto auto
+
+    .footer-container
+        text-align: left
+
+    h5
+        font-size: 20px
+        font-weight: 400
+    
+    .footer-container ul li
+        padding: 4px 0
+        font-weight: 100
+
+        a 
+            transition: color 0.2s
+            color: white
+
+.footer-container li > a:hover
+    color: $brand-color-purple
+
+.noselect 
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+.FancyGif-DottedLines 
+    background-image: linear-gradient(to bottom, $brand-color-white ,White)
+
+.CardGif-Universal
+    background-size: 100%                  // Makes the background fits perfectly
+    background-image: url(https://i.gifer.com/9LIZ.gif)
+
+.FancyGif-Space
+    background-size: 50%                  // Makes the background fits perfectly
+    background-image: url(https://i.gifer.com/hE2.gif)
+
+.fancy-display //---------------------------// Fancy style with changing background colors
+    color: $brand-color-gray                // Makes the text color filled with ocapicity 0 so you can look thru 
+    line-height: 1                          // Spacing between the letters
+    background-clip: text
+    -moz-background-clip: text              // Cuts the text out of img to show the letters instead of showing an block 
+    -webkit-background-clip: text           // Same function as the one up but for apple
+    -webkit-text-fill-color: transparent    // Fixes the gif and supports it for other browsers
+
+
+
+
+// Css for tablet's
+@media only screen and (max-width: $tablet-screen) 
+
+
+    .container-contact input, 
+    .container-contact textarea
+        width: 75%
+        margin: 10px 5%    
+        padding: 5px 5%
+
+
+    //TODO Creating css for the Tablet
+    .pc-nav
+        display: none
+    
+    section
+        grid-template-columns: auto auto
+
+
+
+    #catogories section
+        grid-template-columns: auto auto 
+
+    h3 
+
+        font-size: 40px
+        font-weight: 600
+
+
+    header
+        display: none
+
+
+    .container-projects
+        
+        section
+            grid-template-columns: auto
+        
+        .code-blocks
+            display: block
+
+
+        .back
+            border-radius: 0 20px 20px 0
+            
+        .fa
+            width: 50px
+            font-size: 30px
+
+        .fa span
+            display: none
+
+        
+        .code-container
+            border-radius: 0 0 20px 20px
+            border: none
+            border-top: 1px solid black
+            min-width: 100px
+            padding: 10px 2.5%
+
+    footer
+        grid-template-columns: auto 
+
+    footer div
+        margin: 40px 0
+
+// Css for phone's
+@media only screen and (max-width: $phone-screen) 
+    //TODO Creating css for the Phone
+    section
+        grid-template-columns: auto 
+
+    #catogories section
+        grid-template-columns: auto 
+
+    
+.container // Reusable container for content to be placed in
+
+    .title 
+        width: 90%
+        text-align: center
+        margin-left: 5%
+        padding-top: 2.5vh
+
+        h1 // Style for the home title of the page
+            width: 100%
+            padding: 10px 0
+            font-size: 25px
+
+            button
+                width: 40%
+                padding: 10px 0
+                border: 1px solid $brand-color-white
+                margin: 10px 10%
+                font-size: 15px
+
+
+
+
+// Unbluring screen animation onload
+@keyframes unblur-page-animation
+    0%
+        filter: blur(10px)
+            
+    100%
+        filter: blur(0px)
+        
+// Bluring screen animation ofload, Like switching to other pages
+@keyframes blur-page-animation
+    0%
+        filter: blur(0px)
+        
+    100%
+        filter: blur(10px)
+
+
+
